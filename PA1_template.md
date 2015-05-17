@@ -63,8 +63,10 @@ Show which 5-minute interval, on average across all the days in the dataset, con
 ```r
 sortedata <- ave_num_steps[order(-ave_num_steps$steps),]
 max_interval <- sortedata [1,1]
-max_steps <- sortedata [1,2]
+max_steps <-round((sortedata [1,2]), digits = 0)  
 ```
+The interval 835 contains the maximum number of steps, which is 206 steps.
+
 
 ## Imputing missing values
 
@@ -101,12 +103,12 @@ hist(tot_daily_steps_m$steps)
 ![](PA1_template_files/figure-html/unnamed-chunk-10-1.png) 
 
 ```r
-summary(tot_daily_steps$steps)
+summary(tot_daily_steps_m$steps)
 ```
 
 ```
 ##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-##      41    8841   10760   10770   13290   21190
+##      41    9819   10770   10770   12810   21190
 ```
 
 What difference did including the modelled data make?

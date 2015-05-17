@@ -52,8 +52,10 @@ Show which 5-minute interval, on average across all the days in the dataset, con
 ```{r, echo=TRUE}
 sortedata <- ave_num_steps[order(-ave_num_steps$steps),]
 max_interval <- sortedata [1,1]
-max_steps <- sortedata [1,2]
+max_steps <-round((sortedata [1,2]), digits = 0)  
 ```
+The interval `r max_interval` contains the maximum number of steps, which is `r max_steps` steps.
+
 
 ## Imputing missing values
 
@@ -75,7 +77,7 @@ Repeat the observations that were made with the non-modelled readings
 ```{r, echo=TRUE}
 tot_daily_steps_m <- aggregate(steps ~ date,data=full_modelled,sum)
 hist(tot_daily_steps_m$steps)
-summary(tot_daily_steps$steps)
+summary(tot_daily_steps_m$steps)
 ```
 
 What difference did including the modelled data make?
